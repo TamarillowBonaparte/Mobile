@@ -13,6 +13,15 @@
         android:theme="@style/Theme.GiziWase"
         tools:targetApi="31">
         <activity
+            android:name=".bmi.bmiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".welcome.WelcomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".register.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
