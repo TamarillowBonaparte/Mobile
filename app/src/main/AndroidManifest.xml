@@ -19,7 +19,7 @@
             android:name=".bmi.bmiActivity"
             android:exported="false" />
         <activity
-            android:name=".welcome.WelcomeActivity"
+            android:name="com.dicoding.giziwise.welcome.WelcomeActivity"
             android:exported="false" />
         <activity
             android:name=".register.RegisterActivity"
