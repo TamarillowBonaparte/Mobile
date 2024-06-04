@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GiziWase</string>
+    <string name="capture_button">Capture</string>
+    <string name="switch_camera_button">Switch Camera</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.dicoding.giziwase
+package com.dicoding.giziwise
 
 import org.junit.Test
 

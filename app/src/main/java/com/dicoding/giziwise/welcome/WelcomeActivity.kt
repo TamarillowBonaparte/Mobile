@@ -1,11 +1,11 @@
-package com.dicoding.giziwase.welcome
+package com.dicoding.giziwise.welcome
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.dicoding.giziwase.R
+import com.dicoding.giziwise.R
 
 class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -11,8 +11,6 @@
     android:background="@drawable/loginbackgroud"
     tools:context=".MainActivity">
 
-
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,17 +38,18 @@
                 android:textColor="@color/purple"/>
 
             <EditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/username"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_account_circle_24"
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:textColorHighlight="@color/cardview_dark_background" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -103,6 +102,7 @@
         android:textAlignment="center"
         android:id="@+id/signupText"
         android:textColor="@color/purple"
+        android:textStyle="bold"
         android:layout_marginBottom="20dp"/>
 
 

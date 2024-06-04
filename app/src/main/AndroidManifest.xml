@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GiziWase"
         tools:targetApi="31">
         <activity
+            android:name="com.dicoding.giziwise.scanner.ScannerActivity"
+            android:exported="false" />
+        <activity
             android:name=".bmi.bmiActivity"
             android:exported="false" />
         <activity
