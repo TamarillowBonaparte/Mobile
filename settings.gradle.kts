@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GiziWase"
+rootProject.name = "GiziWise"
 include(":app")
  
