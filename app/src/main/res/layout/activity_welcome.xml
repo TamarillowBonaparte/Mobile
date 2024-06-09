@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.634"
-        app:srcCompat="@drawable/giziwise_logo" />
+        app:srcCompat="@drawable/logoku" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -65,7 +65,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:alpha="0"
-        android:backgroundTint="@color/dark_green"
+        android:backgroundTint="@color/green"
         android:text="@string/login"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:alpha="0"
-        android:backgroundTint="@color/dark_green"
+        android:backgroundTint="@color/green"
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
