@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "855465524531",
+    "project_id": "giziwise-610eb",
+    "storage_bucket": "giziwise-610eb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855465524531:android:b1e15086026523a30b5246",
+        "android_client_info": {
+          "package_name": "com.dicoding.giziwase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855465524531-locns4iqstp2c44kulb0nkf9ldb15n0g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dicoding.giziwase",
+            "certificate_hash": "e7cd491df0a267a9f42cf6f7cb233c06d9e9697f"
+          }
+        },
+        {
+          "client_id": "855465524531-ffv7r5itp4co8gt7b97f980jhhl0vlop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoM8bXXHAPlTxl0RX9jYN5Y92FR4Cre-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855465524531-ffv7r5itp4co8gt7b97f980jhhl0vlop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
