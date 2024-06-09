@@ -5,6 +5,7 @@
     <color name="main">#00CC0A</color>
     <color name="purple">#8692f7</color>
     <color name="green">#40DA19</color>
-
+    <color name="red_500">#f44336</color>
+    <color name="dark_green">#36622B</color>
 
 </resources>
