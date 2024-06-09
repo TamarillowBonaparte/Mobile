@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.dicoding.giziwase.R
 import com.dicoding.giziwase.databinding.ActivityRegisterBinding
-
 import com.dicoding.giziwise.login.LoginActivity
 
 class RegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
