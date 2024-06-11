@@ -14,9 +14,9 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.R
 import com.dicoding.giziwase.databinding.ActivityRegisterBinding
-import com.dicoding.giziwise.ViewModelFactory
 import com.dicoding.giziwise.data.Result
 import com.dicoding.giziwise.login.LoginActivity
 
