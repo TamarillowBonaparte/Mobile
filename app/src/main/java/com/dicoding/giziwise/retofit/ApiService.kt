@@ -1,5 +1,6 @@
 package com.dicoding.giziwise.retofit
 
+import com.dicoding.giziwise.response.LoginResponse
 import com.dicoding.giziwise.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -9,8 +10,16 @@ interface ApiService {
     @FormUrlEncoded
     @POST("signup")
     suspend fun signup(
-            @Field("email") email: String ,
-            @Field("password")password: String ,
-            @Field("confirm_password") confirm_password: String
+        @Field("nama") nama: String,
+        @Field("email") email: String,
+        @Field("password")password: String,
+        @Field("confirmPassword") confirmPassword: String
     ): RegisterResponse
+
+    @FormUrlEncoded
+    @POST("signin")
+    suspend fun login(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): LoginResponse
 }

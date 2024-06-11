@@ -1,8 +1,10 @@
 package com.dicoding.giziwise.response
 
 import com.google.gson.annotations.SerializedName
+data class LoginResponse(
 
-data class RegisterResponse(
+	@field:SerializedName("data")
+	val data: Data,
 
 	@field:SerializedName("message")
 	val message: String,
@@ -11,3 +13,11 @@ data class RegisterResponse(
 	val status: String
 )
 
+data class Data(
+
+	@field:SerializedName("id")
+	val id: Int,
+
+	@field:SerializedName("token")
+	val token: String
+)

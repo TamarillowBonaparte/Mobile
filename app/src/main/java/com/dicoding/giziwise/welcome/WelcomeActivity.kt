@@ -1,5 +1,6 @@
 package com.dicoding.giziwise.welcome
 
+
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.giziwase.databinding.ActivityWelcomeBinding
 import com.dicoding.giziwise.login.LoginActivity
 import com.dicoding.giziwise.register.RegisterActivity
+
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding

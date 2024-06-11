@@ -31,17 +31,11 @@ class MainActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
-        if (firebaseUser == null) {
-            // Not signed in, launch the Login activity
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
-            return
-        }
+
 
         binding.logout.setOnClickListener {
             // Hapus sesi login
             Firebase.auth.signOut()
-
             // Mulai aktivitas baru
             startActivity(Intent(this, LoginActivity::class.java))
             finish() // Opsional: Tutup aktivitas saat ini
