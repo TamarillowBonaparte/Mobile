@@ -9,19 +9,32 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.databinding.ActivityWelcomeBinding
+import com.dicoding.giziwise.MainActivity
 import com.dicoding.giziwise.login.LoginActivity
 import com.dicoding.giziwise.register.RegisterActivity
 
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
+    private val viewModel by viewModels<WelcomeViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel.getsesion().observe(this){
+            if(!it.isLogin){
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+        }
 
         setupView()
         setupAction()

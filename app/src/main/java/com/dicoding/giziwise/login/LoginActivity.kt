@@ -16,9 +16,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.giziwase.R
 import com.dicoding.giziwase.databinding.ActivityLoginBinding
 import com.dicoding.giziwise.MainActivity
-import com.dicoding.giziwise.ViewModelFactory
+import com.dicoding.ViewModelFactory
 import com.dicoding.giziwise.data.Result
 import com.dicoding.giziwise.pref.UserModel
+import com.dicoding.giziwise.profile.ProfileActivity
 
 @Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
@@ -60,11 +61,21 @@ class LoginActivity : AppCompatActivity() {
 
                         is Result.Success -> {
                             showLoading(false)
-                            it.data.data.token.let { it1 ->
-                                setupAction(
-                                    it.data.message,
-                                    it1
-                                )
+                            viewModel.saveSession(UserModel(email, it.data.data.token))
+
+                            AlertDialog.Builder(this@LoginActivity).apply {
+                                setTitle("Login Berhasil")
+                                setMessage(it.data.message)
+                                setPositiveButton("Lanjut") { _, _ ->
+                                    val intent = Intent(context, MainActivity::class.java)
+                                    intent.putExtra(MainActivity.TOKEN, it.data.data.token)
+                                    Log.d("tokensend", it.data.data.token)
+                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                    startActivity(intent)
+                                    finish()
+                                }
+                                create()
+                                show()
                             }
                         }
                     }
@@ -84,24 +95,6 @@ class LoginActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
-    }
-
-    private fun setupAction(message: String, token: String) {
-        val email = binding.email.text.toString()
-        viewModel.saveSession(UserModel(email, token))
-
-        AlertDialog.Builder(this).apply {
-            setTitle("Login Berhasil")
-            setMessage(message)
-            setPositiveButton("Lanjut") { _, _ ->
-                val intent = Intent(context, MainActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                finish()
-            }
-            create()
-            show()
-        }
     }
 
     private fun setupFail(message: String) {

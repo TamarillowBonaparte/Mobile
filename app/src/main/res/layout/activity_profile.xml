@@ -2,7 +2,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -63,7 +62,7 @@
                 android:gravity="start|center"
                 android:paddingStart="8dp"
                 android:background="@drawable/custom_edittext"
-                tools:text="Username"/>
+                />
 
             <TextView
                 android:id="@+id/tv_email"
@@ -85,7 +84,7 @@
                 android:gravity="start|center"
                 android:paddingStart="8dp"
                 android:background="@drawable/custom_edittext"
-                tools:text="Email" />
+                />
 
             <TextView
                 android:id="@+id/tv_gender"
@@ -107,7 +106,7 @@
                 android:gravity="start|center"
                 android:paddingStart="8dp"
                 android:background="@drawable/custom_edittext"
-                tools:text="Gender" />
+                 />
 
             <TextView
                 android:id="@+id/tv_date"
@@ -129,7 +128,7 @@
                 android:gravity="start|center"
                 android:paddingStart="8dp"
                 android:background="@drawable/custom_edittext"
-                tools:text="Date of Birth" />
+                 />
 
             <TextView
                 android:id="@+id/tv_tinggi"
@@ -151,7 +150,7 @@
                 android:gravity="start|center"
                 android:paddingStart="8dp"
                 android:background="@drawable/custom_edittext"
-                tools:text="Height" />
+                 />
 
             <TextView
                 android:id="@+id/tv_berat"
@@ -173,7 +172,7 @@
                 android:gravity="start|center"
                 android:paddingStart="8dp"
                 android:background="@drawable/custom_edittext"
-                tools:text="Height" />
+                 />
 
 
         </LinearLayout>

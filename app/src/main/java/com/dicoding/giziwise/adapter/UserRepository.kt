@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 import com.dicoding.giziwise.data.Result
 import com.dicoding.giziwise.response.LoginResponse
+import com.dicoding.giziwise.response.ProfileResponse
 
 class UserRepository private constructor(
     private val apiService: ApiService,
@@ -56,6 +57,17 @@ class UserRepository private constructor(
         }
     }
 
+    fun profile(token: String):
+            LiveData<Result<ProfileResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.profile(token)
+            emit(Result.Success(response))
+        } catch (e: HttpException) {
+            Log.d("profile", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
 
     companion object{
         @Volatile
