@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,10 +8,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/logingiziwise"
+    android:background="@drawable/register_bgfix"
     tools:context="com.dicoding.giziwise.register.RegisterActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -26,6 +27,11 @@
             android:layout_gravity="center_horizontal"
             android:padding="24dp">
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -38,16 +44,35 @@
                 android:textColor="@color/purple"/>
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/nama"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_account_circle_24"
                 android:drawablePadding="8dp"
-                android:hint="Username"
+                android:hint="nama"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/custom_edittext"
+                    android:drawableLeft="@drawable/baseline_mail_24"
+                    android:drawablePadding="8dp"
+                    android:hint="example@email.com"
+                    android:inputType="textEmailAddress"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHighlight="@color/cardview_dark_background" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -68,7 +93,7 @@
                     android:textColorHighlight="@color/cardview_dark_background"/>
 
                 <ImageView
-                    android:id="@+id/passwordToggle"
+                    android:id="@+id/Showpassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -84,20 +109,20 @@
                 android:layout_marginTop="20dp">
 
                 <EditText
+                    android:id="@+id/confirmpassword"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:id="@+id/konfirmpassword"
                     android:background="@drawable/custom_edittext"
                     android:drawableLeft="@drawable/baseline_lock_24"
                     android:drawablePadding="8dp"
                     android:hint="Confirm Password"
-                    android:padding="8dp"
                     android:inputType="textPassword"
+                    android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHighlight="@color/cardview_dark_background"/>
+                    android:textColorHighlight="@color/cardview_dark_background" />
 
                 <ImageView
-                    android:id="@+id/confirmPasswordToggle"
+                    android:id="@+id/ShowconfirmPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -120,4 +145,4 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+</RelativeLayout>

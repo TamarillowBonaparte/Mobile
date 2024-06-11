@@ -62,5 +62,5 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
 
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
 }

@@ -13,6 +13,7 @@ import androidx.credentials.exceptions.GetCredentialException
 import androidx.lifecycle.lifecycleScope
 import com.dicoding.giziwase.BuildConfig
 import com.dicoding.giziwase.databinding.ActivityLoginBinding
+import com.dicoding.giziwase.databinding.ActivityLoginBinding.*
 import com.dicoding.giziwise.MainActivity
 import com.google.android.libraries.identity.googleid.GetSignInWithGoogleOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
