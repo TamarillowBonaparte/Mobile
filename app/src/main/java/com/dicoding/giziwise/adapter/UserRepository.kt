@@ -10,8 +10,11 @@ import com.dicoding.giziwise.retofit.ApiService
 import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 import com.dicoding.giziwise.data.Result
+import com.dicoding.giziwise.response.InputbmiResponse
 import com.dicoding.giziwise.response.LoginResponse
 import com.dicoding.giziwise.response.ProfileResponse
+import com.dicoding.giziwise.retofit.ApiConfiig
+import java.util.Date
 
 class UserRepository private constructor(
     private val apiService: ApiService,
@@ -65,6 +68,22 @@ class UserRepository private constructor(
             emit(Result.Success(response))
         } catch (e: HttpException) {
             Log.d("profile", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+    fun inputbmi(
+        weight: Int,
+        height: Int,
+        dob: Date,
+        gender: String,
+        token: String
+    ): LiveData<Result<InputbmiResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = ApiConfiig.getApiService(token).inputbmi(weight, height,dob,gender)
+            emit(Result.Success(response))
+        } catch (e: HttpException) {
+            Log.d("login", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }

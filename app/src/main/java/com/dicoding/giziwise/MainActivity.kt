@@ -12,6 +12,7 @@ import androidx.credentials.CredentialManager
 import androidx.lifecycle.lifecycleScope
 import com.dicoding.giziwase.databinding.ActivityMainBinding
 import com.dicoding.giziwase.databinding.ActivityWelcomeBinding
+import com.dicoding.giziwise.bmiinput.InputActivity
 import com.dicoding.giziwise.login.LoginActivity
 import com.dicoding.giziwise.profile.ProfileActivity
 import com.dicoding.giziwise.welcome.WelcomeActivity
@@ -24,6 +25,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
             finish() // Opsional: Tutup aktivitas saat ini
         }
+        binding.tambahbtn.setOnClickListener{
+            startActivity(Intent(this, InputActivity::class.java))
+        }
+
 
         binding.profileBtn.setOnClickListener {
             val token = intent.getStringExtra(TOKEN)
