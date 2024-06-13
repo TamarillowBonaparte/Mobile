@@ -62,6 +62,8 @@ class LoginActivity : AppCompatActivity() {
                         is Result.Success -> {
                             showLoading(false)
                             viewModel.saveSession(UserModel(email, it.data.data.token))
+                            Log.d("LoginActivity", it.data.data.token)
+                            Log.d("LoginActivity", email)
 
                             AlertDialog.Builder(this@LoginActivity).apply {
                                 setTitle("Login Berhasil")

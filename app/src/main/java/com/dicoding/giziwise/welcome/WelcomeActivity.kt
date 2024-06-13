@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -30,7 +31,9 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.getsesion().observe(this){
-            if(!it.isLogin){
+            Log.d("welcomeActivity", "${it.isLogin}")
+            Log.d("welcomeActivity", it.token)
+            if(it.isLogin){
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
