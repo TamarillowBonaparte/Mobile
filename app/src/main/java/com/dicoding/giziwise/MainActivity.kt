@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.credentials.ClearCredentialStateRequest
 import androidx.credentials.CredentialManager
 import androidx.lifecycle.lifecycleScope
+import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.databinding.ActivityMainBinding
 import com.dicoding.giziwase.databinding.ActivityWelcomeBinding
 import com.dicoding.giziwise.bmiinput.InputActivity
@@ -23,8 +25,11 @@ import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
+    private val viewModel by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
     private lateinit var binding: ActivityMainBinding
-    private lateinit var auth: FirebaseAuth
+//    private lateinit var auth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,16 +38,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
 
-        auth = Firebase.auth
-        val firebaseUser = auth.currentUser
+//        auth = Firebase.auth
+//        val firebaseUser = auth.currentUser
 
 
         binding.logout.setOnClickListener {
-            // Hapus sesi login
-            Firebase.auth.signOut()
-            // Mulai aktivitas baru
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish() // Opsional: Tutup aktivitas saat ini
+            signOut()
         }
         binding.tambahbtn.setOnClickListener{
             startActivity(Intent(this, InputActivity::class.java))
@@ -61,15 +62,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun signOut() {
-
         lifecycleScope.launch {
-            val credentialManager = CredentialManager.create(this@MainActivity)
-            auth.signOut()
-            credentialManager.clearCredentialState(ClearCredentialStateRequest())
-            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+            viewModel.logout()
+            val intent = Intent(this@MainActivity, WelcomeActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
+
 
     companion object {
         const val TOKEN = "token"

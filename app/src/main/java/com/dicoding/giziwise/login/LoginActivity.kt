@@ -43,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
                 val password = password.text.toString()
 
                 if (!isValidEmail(email)) {
-                    showErrorDialog("Invalid Email", "Please enter a valid email address.")
+                    showErrorDialog("Invalid Email", "Tolong isi email dengan tanda @")
                     return@setOnClickListener
                 }
 
