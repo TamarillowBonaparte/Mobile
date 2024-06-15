@@ -11,7 +11,9 @@ import kotlinx.coroutines.flow.Flow
 import retrofit2.HttpException
 import com.dicoding.giziwise.data.Result
 import com.dicoding.giziwise.response.LoginResponse
+import com.dicoding.giziwise.response.NutritionResponse
 import com.dicoding.giziwise.response.ProfileResponse
+import com.dicoding.giziwise.retofit.ApiConfiig
 
 class UserRepository private constructor(
     private val apiService: ApiService,
@@ -61,10 +63,24 @@ class UserRepository private constructor(
             LiveData<Result<ProfileResponse>> = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.profile(token)
+            val response = ApiConfiig.getApiService(token).profile()
             emit(Result.Success(response))
         } catch (e: HttpException) {
             Log.d("profile", e.message.toString())
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun nutrition(
+        nama_makanan: String,
+        portion_size: String
+    ): LiveData<Result<NutritionResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.nutrition(nama_makanan, portion_size)
+            emit(Result.Success(response))
+        } catch (e: HttpException) {
+            Log.d("nutrition", e.message.toString())
             emit(Result.Error(e.message.toString()))
         }
     }

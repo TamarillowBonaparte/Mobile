@@ -7,6 +7,7 @@ import com.dicoding.giziwise.MainViewModel
 import com.dicoding.giziwise.adapter.UserRepository
 import com.dicoding.giziwise.di.Injection
 import com.dicoding.giziwise.login.LoginViewModel
+import com.dicoding.giziwise.nutrition.NutritionViewModel
 import com.dicoding.giziwise.profile.ProfileViewModel
 import com.dicoding.giziwise.register.RegisterViewModel
 import com.dicoding.giziwise.welcome.WelcomeViewModel
@@ -30,6 +31,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(NutritionViewModel::class.java) -> {
+                NutritionViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

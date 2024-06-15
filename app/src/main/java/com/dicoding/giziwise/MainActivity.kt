@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.credentials.ClearCredentialStateRequest
 import androidx.credentials.CredentialManager
 import androidx.lifecycle.lifecycleScope
+import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.databinding.ActivityMainBinding
 import com.dicoding.giziwase.databinding.ActivityWelcomeBinding
 import com.dicoding.giziwise.login.LoginActivity
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
+    private val viewModel: MainViewModel by viewModels {
+        ViewModelFactory.getInstance(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,8 +40,9 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
 
-
         binding.logout.setOnClickListener {
+            viewModel.logout()
+
             // Hapus sesi login
             Firebase.auth.signOut()
             // Mulai aktivitas baru
@@ -44,13 +51,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.profileBtn.setOnClickListener {
-            val token = intent.getStringExtra(TOKEN)
             val intent = Intent(this, ProfileActivity::class.java)
-            intent.putExtra(ProfileActivity.TOKEN, token)
-            Log.d("tokencheck", token!!)
             startActivity(intent)
-
-            finish()
         }
     }
 
@@ -63,9 +65,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             finish()
         }
-    }
-
-    companion object {
-        const val TOKEN = "token"
     }
 }

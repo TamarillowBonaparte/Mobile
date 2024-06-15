@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nutrition_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="40dp"
+        android:text="Estimasi Nutrisi"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Masukan menu makanan"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle" />
+
+    <EditText
+        android:id="@+id/editTextMenu"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:hint="Pilih satu menu makanan"
+        android:paddingStart="20dp"
+        android:background="@drawable/custom_inputtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewMenu" />
+
+    <TextView
+        android:id="@+id/textViewPorsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Masukan Porsi (Gram)"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextMenu" />
+
+    <EditText
+        android:id="@+id/editTextPorsi"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/custom_inputtext"
+        android:hint="Gram"
+        android:paddingStart="20dp"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewPorsi" />
+
+    <TextView
+        android:id="@+id/textViewHasilTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Hasil Estimasi Nutrisi"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPorsi" />
+
+    <TextView
+        android:id="@+id/textViewHasil"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_outputtext"
+        android:text="Pada makanan Sate pada porsi 200 gram terdapat 100 energi, 100 lemak, 200 protein"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingTop="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewHasilTitle" />
+
+    <Button
+        android:id="@+id/buttonHitung"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:text="Hitung"
+        android:backgroundTint="@color/dark_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

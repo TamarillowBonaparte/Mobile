@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class ProfileResponse(
 
 	@field:SerializedName("dataakun")
-	val data: DataAkun,
+	val dataakun: Dataakun,
 
 	@field:SerializedName("status")
-	val status: String? = null
+	val status: String
 )
 
 data class Bmi(
@@ -29,7 +29,7 @@ data class Bmi(
 	val height: Int
 )
 
-data class DataAkun(
+data class Dataakun(
 
 	@field:SerializedName("nama")
 	val nama: String,

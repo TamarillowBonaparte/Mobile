@@ -1,5 +1,6 @@
 package com.dicoding.giziwise.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -10,22 +11,21 @@ import androidx.core.view.WindowInsetsCompat
 import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.R
 import com.dicoding.giziwase.databinding.ActivityProfileBinding
-import com.dicoding.giziwase.databinding.ActivityRegisterBinding
-import com.dicoding.giziwise.MainActivity
 import com.dicoding.giziwise.data.Result
-import com.dicoding.giziwise.register.RegisterViewModel
+import com.dicoding.giziwise.welcome.WelcomeActivity
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private val viewModel by viewModels<ProfileViewModel> {
         ViewModelFactory.getInstance(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.profile_activity)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -35,8 +35,9 @@ class ProfileActivity : AppCompatActivity() {
             logout()
         }
 
-        val token = intent.getStringExtra(TOKEN)
-        getProfile(token!!)
+        viewModel.getsesion().observe(this) {
+            getProfile(it.token)
+        }
 
     }
 
@@ -46,18 +47,18 @@ class ProfileActivity : AppCompatActivity() {
                 when (result) {
                     is Result.Loading -> {}
                     is Result.Success -> {
-                        tvNameValue.text = result.data.data.nama
-                        tvEmailValue.text = result.data.data.email
-                        tvGenderValue.text = result.data.data.bmi.gender
-                        tvDateValue.text = result.data.data.bmi.dob
-                        tvTinggiValue.text = result.data.data.bmi.height.toString()
-                        tvBeratValue.text = result.data.data.bmi.weight.toString()
-                        Log.d("ProfileActivity", result.data.data.nama)
-                        Log.d("ProfileActivity", result.data.data.email)
-                        Log.d("ProfileActivity", result.data.data.bmi.gender)
-                        Log.d("ProfileActivity", result.data.data.bmi.dob)
-                        Log.d("ProfileActivity", result.data.data.bmi.height.toString())
-                        Log.d("ProfileActivity", result.data.data.bmi.weight.toString())
+                        tvNameValue.text = result.data.dataakun.nama
+                        tvEmailValue.text = result.data.dataakun.email
+                        tvGenderValue.text = result.data.dataakun.bmi.gender
+                        tvDateValue.text = result.data.dataakun.bmi.dob
+                        tvTinggiValue.text = result.data.dataakun.bmi.height.toString()
+                        tvBeratValue.text = result.data.dataakun.bmi.weight.toString()
+                        Log.d("ProfileActivitydata", result.data.dataakun.nama)
+                        Log.d("ProfileActivitydata", result.data.dataakun.email)
+                        Log.d("ProfileActivitydata", result.data.dataakun.bmi.gender)
+                        Log.d("ProfileActivitydata", result.data.dataakun.bmi.dob)
+                        Log.d("ProfileActivitydata", result.data.dataakun.bmi.height.toString())
+                        Log.d("ProfileActivitydata", result.data.dataakun.bmi.weight.toString())
                     }
                     is Result.Error -> {
                         Log.e("profile",result.error)
@@ -67,12 +68,9 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-    fun logout(){
+    private fun logout(){
         viewModel.logout()
-    }
-
-
-    companion object {
-        const val TOKEN = "token"
+        startActivity(Intent(this, WelcomeActivity::class.java))
+        finish()
     }
 }

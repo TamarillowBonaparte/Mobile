@@ -1,12 +1,12 @@
 package com.dicoding.giziwise.retofit
 
 import com.dicoding.giziwise.response.LoginResponse
+import com.dicoding.giziwise.response.NutritionResponse
 import com.dicoding.giziwise.response.ProfileResponse
 import com.dicoding.giziwise.response.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
-import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
@@ -26,9 +26,13 @@ interface ApiService {
         @Field("password") password: String
     ): LoginResponse
 
+    @GET("me")
+    suspend fun profile(): ProfileResponse
+
     @FormUrlEncoded
-    @GET("profile")
-    suspend fun profile(
-        @Header("Authorization") token: String
-    ): ProfileResponse
+    @POST("predict")
+    suspend fun nutrition(
+        @Field("nama_makanan") nama_makanan: String,
+        @Field("portion_size") portion_size: String,
+    ): NutritionResponse
 }

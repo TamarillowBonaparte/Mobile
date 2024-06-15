@@ -1,6 +1,7 @@
 package com.dicoding.giziwise.retofit
 
 import com.dicoding.giziwase.BuildConfig
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,8 +14,17 @@ class ApiConfiig {
             val loggingInterceptor = HttpLoggingInterceptor()
                 .setLevel(HttpLoggingInterceptor.Level.BODY)
 
+            val authInterceptor = Interceptor { chain ->
+                val req = chain.request()
+                val requestHeaders = req.newBuilder()
+                    .addHeader("Cookie", "token=$token")
+                    .build()
+                chain.proceed(requestHeaders)
+            }
+
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor(authInterceptor)
                 .build()
 
             val retrofit = Retrofit.Builder()
