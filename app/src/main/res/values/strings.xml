@@ -20,7 +20,7 @@
     <string name="email">Email</string>
     <string-array name="gender_options">
         <item>Pilih</item>
-        <item>Laki-laki</item>
-        <item>Perempuan</item>
+        <item>male</item>
+        <item>female</item>
     </string-array>
 </resources>

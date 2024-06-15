@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.giziwise.MainViewModel
 import com.dicoding.giziwise.adapter.UserRepository
+import com.dicoding.giziwise.bmi.bmiViewModel
 import com.dicoding.giziwise.bmiinput.InputViewModel
 import com.dicoding.giziwise.di.Injection
 import com.dicoding.giziwise.login.LoginViewModel
@@ -34,6 +35,9 @@ class ViewModelFactory(private val repository: UserRepository) : ViewModelProvid
             }
             modelClass.isAssignableFrom(InputViewModel::class.java) -> {
                 InputViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(bmiViewModel::class.java) -> {
+                bmiViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

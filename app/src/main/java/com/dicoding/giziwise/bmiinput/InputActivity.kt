@@ -4,7 +4,9 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.DatePicker
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -12,10 +14,8 @@ import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.databinding.ActivityInputBinding
 import com.dicoding.giziwise.bmi.bmiActivity
 import com.dicoding.giziwise.data.Result
-import com.dicoding.giziwise.login.LoginActivity
 import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Date
 import java.util.Locale
 
 class InputActivity : AppCompatActivity() {
@@ -25,10 +25,12 @@ class InputActivity : AppCompatActivity() {
     }
     private val calendar = Calendar.getInstance()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityInputBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        showLoading(false)
 
         binding.etDob.setOnClickListener {
             showDatePickerDialog()
@@ -41,21 +43,47 @@ class InputActivity : AppCompatActivity() {
                 val height = etHeight.text.toString()
                 val weight = etWeight.text.toString()
 
-                val format = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
-                val date: Date = format.parse(dob)
+                Log.d("InputActivity", "Gender: $gender")
+                Log.d("InputActivity", "dob: $dob")
+                Log.d("InputActivity", "Height: $height")
+                Log.d("InputActivity", "Weight: $weight")
 
-                viewModel.getSession().observe(this@InputActivity) {
-                    viewModel.inputbmiawal(weight.toInt(), height.toInt(), date, gender, it.token).observe(this@InputActivity) { result ->
-                        when (result) {
-                            is Result.Loading -> {}
-                            is Result.Success -> {
-                                setupAction()
+                // Pastikan semua parameter telah diisi
+                if (gender.isNotEmpty() && dob.isNotEmpty() && height.isNotEmpty() && weight.isNotEmpty()) {
+                    Log.d("InputActivity", "date: $dob")
+
+                    viewModel.getSession().observe(this@InputActivity) {
+                        viewModel.inputbmiawal(weight.toInt(), height.toInt(), gender, dob, it.token).observe(this@InputActivity) { result ->
+                            when (result) {
+                                is Result.Loading -> {
+                                    showLoading(true)}
+                                is Result.Success -> {
+                                    setupAction()
+                                }
+                                is Result.Error -> {
+                                    showLoading(false)
+                                    setupFail(result.error)
+                                    Log.e("InputActivity", "Error: ${result.error}")
+                                }
                             }
-                            is Result.Error -> {}
                         }
                     }
+                } else {
+                    Toast.makeText(this@InputActivity, "Mohon lengkapi semua field", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+    }
+
+    private fun setupFail(message: String) {
+        AlertDialog.Builder(this).apply {
+            setTitle("Gagal Silahkan Coba lagi")
+            setMessage(message)
+            setPositiveButton("Lanjut") { _, _ ->
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            create()
+            show()
         }
     }
 
@@ -87,8 +115,11 @@ class InputActivity : AppCompatActivity() {
         datePickerDialog.show()
     }
 
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
     private fun updateDobEditText() {
-        val sdf = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         binding.etDob.setText(sdf.format(calendar.time))
     }
 }
