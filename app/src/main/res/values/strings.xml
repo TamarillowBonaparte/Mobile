@@ -18,4 +18,9 @@
     <string name="berat">Weight</string>
     <string name="logout">Log Out</string>
     <string name="email">Email</string>
+    <string-array name="gender_options">
+        <item>Pilih</item>
+        <item>male</item>
+        <item>female</item>
+    </string-array>
 </resources>

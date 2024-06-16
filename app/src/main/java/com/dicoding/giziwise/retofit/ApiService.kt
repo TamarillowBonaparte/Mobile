@@ -1,5 +1,7 @@
 package com.dicoding.giziwise.retofit
 
+import com.dicoding.giziwise.response.BmiResponse
+import com.dicoding.giziwise.response.InputbmiResponse
 import com.dicoding.giziwise.response.LoginResponse
 import com.dicoding.giziwise.response.NutritionResponse
 import com.dicoding.giziwise.response.ProfileResponse
@@ -35,4 +37,17 @@ interface ApiService {
         @Field("nama_makanan") nama_makanan: String,
         @Field("portion_size") portion_size: String,
     ): NutritionResponse
+
+    @FormUrlEncoded
+    @POST("bmi")
+    suspend fun inputbmi(
+        @Field("weight") weight: Int,
+        @Field("height") height: Int,
+        @Field("gender") gender: String,
+        @Field("dob") dob: String,
+    ): InputbmiResponse
+
+    @GET("bmi")
+    suspend fun getbmi(
+    ): BmiResponse
 }

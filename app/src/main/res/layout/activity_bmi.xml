@@ -8,10 +8,15 @@
     tools:context="com.dicoding.giziwise.bmi.bmiActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/bmiLabel"
@@ -40,92 +45,120 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="21.8"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="48sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="21.8" />
 
             <TextView
+                android:id="@+id/bmipredikat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/bmiValue"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="8dp"
-                android:text="Normal"
+                android:textColor="@android:color/holo_green_dark"
                 android:textSize="18sp"
-                android:textColor="@android:color/holo_green_dark" />
-
+                tools:text="Normal" />
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/weightTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:textStyle="bold"
+                tools:text="49 kg" />
+
+            <TextView
+                android:id="@+id/heightTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginEnd="8dp"
+                android:textStyle="bold"
+                tools:text="150 cm" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="49 kg"
-                    android:textSize="18sp" />
+            <TextView
+                android:id="@+id/ageTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:textStyle="bold"
+                tools:text="19" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Weight"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <!-- Layouts untuk Height, Age, dan Gender -->
+            <TextView
+                android:id="@+id/genderTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                tools:text="Female" />
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Healthy weight for the height: 53.5 kg - 72.3 kg"
-
-            android:textSize="16sp"
-            android:layout_marginTop="16dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_bg"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Recomendasi makanan"
-                android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:layout_marginEnd="16dp"
+                android:text="Weight" />
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_arrow_right"
-                app:tint="@android:color/white" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Height" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="Age" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender" />
 
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="447 Kkal"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:layout_marginTop="16dp"
+            android:text="Healthy weight for the height:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/healthyWeightTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="53.5 kg - 72.3 kg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Kalori Yang Diperlukan:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/calory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1800" />
 
     </LinearLayout>
 

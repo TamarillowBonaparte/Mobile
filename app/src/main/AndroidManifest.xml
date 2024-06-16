@@ -12,12 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GiziWase"
         tools:targetApi="31" >
+        <activity android:name="com.dicoding.giziwise.bmiinput.InputActivity" />
         <activity
             android:name="com.dicoding.giziwise.nutrition.NutritionActivity"
             android:exported="false" />
-        <activity
-            android:name="com.dicoding.giziwise.ML.MachineActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name="com.dicoding.giziwise.ML.MachineActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name="com.dicoding.giziwise.profile.ProfileActivity"
             android:exported="false" />
