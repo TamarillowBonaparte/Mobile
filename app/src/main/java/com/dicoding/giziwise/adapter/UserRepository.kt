@@ -74,12 +74,13 @@ class UserRepository private constructor(
     }
 
     fun nutrition(
-        nama_makanan: String,
-        portion_size: String
+        namaMakanan: String,
+        portionSize: String,
+        token: String
     ): LiveData<Result<NutritionResponse>> = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.nutrition(nama_makanan, portion_size)
+            val response = ApiConfiig.getApiService(token).nutrition(namaMakanan, portionSize)
             emit(Result.Success(response))
         } catch (e: HttpException) {
             Log.d("nutrition", e.message.toString())
