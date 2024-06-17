@@ -20,6 +20,7 @@ import com.dicoding.ViewModelFactory
 import com.dicoding.giziwise.data.Result
 import com.dicoding.giziwise.pref.UserModel
 import com.dicoding.giziwise.profile.ProfileActivity
+import com.dicoding.giziwise.register.RegisterActivity
 
 @Suppress("DEPRECATION")
 class LoginActivity : AppCompatActivity() {
@@ -34,6 +35,11 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         showLoading(false)
+
+        binding.signupText.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.email.addTextChangedListener(emailTextWatcher)
 
@@ -58,7 +64,6 @@ class LoginActivity : AppCompatActivity() {
                             setupFail(it.error)
                             Log.e("loginError", it.error)
                         }
-
                         is Result.Success -> {
                             showLoading(false)
                             viewModel.saveSession(UserModel(email, it.data.data.token))

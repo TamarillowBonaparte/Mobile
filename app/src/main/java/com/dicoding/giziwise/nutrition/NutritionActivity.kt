@@ -61,6 +61,8 @@ class NutritionActivity : AppCompatActivity() {
                                         setupFail(result.error)
                                         Log.e("NutritionActivity", "Error: ${result.error}")
                                     }
+
+                                    else -> {}
                                 }
                             }
                     }
