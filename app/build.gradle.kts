@@ -70,6 +70,9 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    //implementasi end deskripsi
+    implementation ("com.google.android.material:material:1.4.0")
+
 
 
 }
