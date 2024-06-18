@@ -9,4 +9,9 @@
     <color name="dark_green">#36622B</color>
     <color name="ijo">#B4FDA3</color>
     <color name="ijo_butek">#D1DACF</color>
+    <color name="abu_abu">#ACACAC</color>
+    <color name="bmi_underweight">#ADD8E6</color> <!-- Light Blue -->
+    <color name="bmi_normal">#40DA19</color> <!-- Green -->
+    <color name="bmi_overweight">#FFFF00</color> <!-- Yellow -->
+    <color name="bmi_obese">#FF0000</color> <!-- Red -->
 </resources>

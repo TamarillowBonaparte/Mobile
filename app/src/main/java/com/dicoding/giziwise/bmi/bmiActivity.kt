@@ -2,9 +2,12 @@ package com.dicoding.giziwise.bmi
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.dicoding.ViewModelFactory
+import com.dicoding.giziwase.R
 import com.dicoding.giziwase.databinding.ActivityBmiBinding
 import com.dicoding.giziwise.data.Result
 
@@ -14,16 +17,18 @@ class bmiActivity : AppCompatActivity() {
     private val viewModel: bmiViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBmiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel.getSession().observe(this){
+        viewModel.getSession().observe(this) {
             getbmi(it.token)
         }
     }
-    private fun getbmi(token: String){
+
+    private fun getbmi(token: String) {
         with(binding) {
             viewModel.bmiviewdata(token).observe(this@bmiActivity) { result ->
                 when (result) {
@@ -38,20 +43,71 @@ class bmiActivity : AppCompatActivity() {
                         healthyWeightTextView.text = result.data.databmi.healthyWeightRange
                         calory.text = result.data.databmi.calory.toString()
 
+                        // Set image visibility based on BMI category with fade-in animation
+                        val fadeDuration = 500L
+
+                        fun fadeIn(view: View) {
+                            view.apply {
+                                alpha = 0f
+                                visibility = View.VISIBLE
+                                animate()
+                                    .alpha(1f)
+                                    .setDuration(fadeDuration)
+                                    .setListener(null)
+                            }
+                        }
+
+                        // Reset all images to gone
+//                        imageView2.visibility = View.GONE
+                        under.visibility = View.GONE
+                        normal.visibility = View.GONE
+                        over.visibility = View.GONE
+                        obese.visibility = View.GONE
+
+                        // Set visibility and color based on BMI category
+                        when (result.data.databmi.category) {
+                            "Underweight" -> {
+                                fadeIn(under)
+                                bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_underweight))
+                                bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_underweight))
+                            }
+                            "Normal" -> {
+                                fadeIn(normal)
+                                bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
+                                bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
+                            }
+                            "Overweight" -> {
+                                fadeIn(over)
+                                bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_overweight))
+                                bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_overweight))
+                            }
+                            "Obese" -> {
+                                fadeIn(obese)
+                                bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_obese))
+                                bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_obese))
+                            }
+                            else -> {
+                                fadeIn(imageView2)
+                                bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
+                                bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
+                            }
+                        }
+
                         Log.d("bmiresultview", result.data.databmi.bmi.toString())
                         Log.d("bmiresultview", result.data.databmi.category)
                         Log.d("bmiresultview", result.data.databmi.weight.toString())
-                        Log.d("bmiresultview",result.data.databmi.height.toString())
+                        Log.d("bmiresultview", result.data.databmi.height.toString())
                         Log.d("bmiresultview", result.data.databmi.age.toString())
-                        Log.d("bmiresultview",result.data.databmi.gender)
+                        Log.d("bmiresultview", result.data.databmi.gender)
                         Log.d("bmiresultview", result.data.databmi.healthyWeightRange)
                         Log.d("bmiresultview", result.data.databmi.calory.toString())
                     }
                     is Result.Error -> {
-                        Log.e("bmiactivity",result.error)
+                        Log.e("bmiactivity", result.error)
                     }
                 }
             }
         }
     }
 }
+
