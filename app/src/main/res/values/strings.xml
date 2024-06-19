@@ -4,7 +4,7 @@
     <string name="switch_camera_button">Switch Camera</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_welcome_page">Halo People, Raih Tubuh Sehat dan Ideal dengan GiziWise!</string>
+    <string name="title_welcome_page">Raih Tubuh Sehat dan Ideal dengan GiziWise!</string>
     <string name="message_welcome_page">GiziWise adalah aplikasi yang membantu Anda mencapai berat badan ideal dan gaya hidup sehat. Dengan fitur BMI dan prediksi makanan berdasarkan porsi, Anda dapat melacak asupan kalori dan nutrisi dengan mudah.
 </string>
     <string name="login">Login</string>

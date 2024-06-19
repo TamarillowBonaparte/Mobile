@@ -232,7 +232,6 @@
                     android:textColor="@color/green"
                     tools:text="1800" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
