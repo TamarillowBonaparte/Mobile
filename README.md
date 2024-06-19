@@ -1,2 +1,9 @@
-# Mobile
-Mobile repository for mobile developer project
+# GiziWise - Android Aplication
+Gambar sek ini gitu
+xxxx Deskripsi xxxxx
+
+#Features
+The android app lets you:
+-sadas
+-sadasd
+-sadasda
