@@ -7,3 +7,9 @@ The android app lets you:
 * sadas
 * sadasd
 * sadasda
+
+# Screenshots Aplication
+gambar
+
+# Permissions
+blablabla
