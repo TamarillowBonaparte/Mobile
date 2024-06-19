@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/profile_activity"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@drawable/bgprofil"
     tools:context="com.dicoding.giziwise.profile.ProfileActivity">
 
     <LinearLayout

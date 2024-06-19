@@ -58,7 +58,6 @@ class bmiActivity : AppCompatActivity() {
                         }
 
                         // Reset all images to gone
-//                        imageView2.visibility = View.GONE
                         under.visibility = View.GONE
                         normal.visibility = View.GONE
                         over.visibility = View.GONE
@@ -70,26 +69,31 @@ class bmiActivity : AppCompatActivity() {
                                 fadeIn(under)
                                 bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_underweight))
                                 bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_underweight))
+                                bmiCircle.setBackgroundResource(R.drawable.circle_biru)  // Change background to circle_biru
                             }
                             "Normal" -> {
                                 fadeIn(normal)
                                 bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
                                 bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
+                                bmiCircle.setBackgroundResource(R.drawable.circle_background)  // Keep default background
                             }
                             "Overweight" -> {
                                 fadeIn(over)
                                 bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_overweight))
                                 bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_overweight))
+                                bmiCircle.setBackgroundResource(R.drawable.circle_kuning)  // Change background to circle_kuning
                             }
                             "Obese" -> {
                                 fadeIn(obese)
                                 bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_obese))
                                 bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_obese))
+                                bmiCircle.setBackgroundResource(R.drawable.circle_merah)  // Change background to circle_merah
                             }
                             else -> {
                                 fadeIn(imageView2)
                                 bmipredikat.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
                                 bmiValue.setTextColor(ContextCompat.getColor(this@bmiActivity, R.color.bmi_normal))
+                                bmiCircle.setBackgroundResource(R.drawable.circle_background)  // Keep default background
                             }
                         }
 
@@ -110,4 +114,3 @@ class bmiActivity : AppCompatActivity() {
         }
     }
 }
-
