@@ -16,6 +16,7 @@ import com.dicoding.giziwise.response.LoginResponse
 import com.dicoding.giziwise.response.NutritionResponse
 import com.dicoding.giziwise.response.ProfileResponse
 import com.dicoding.giziwise.retofit.ApiConfiig
+import com.google.gson.Gson
 
 class UserRepository private constructor(
     private val apiService: ApiService,
@@ -43,7 +44,10 @@ class UserRepository private constructor(
             emit(Result.Success(response))
         } catch (e: HttpException) {
             Log.d("register", e.message.toString())
-            emit(Result.Error(e.message.toString()))
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, RegisterResponse::class.java)
+            val errorMessage = errorBody.message
+            emit(Result.Error(errorMessage))
         }
     }
 
@@ -57,7 +61,10 @@ class UserRepository private constructor(
             emit(Result.Success(response))
         } catch (e: HttpException) {
             Log.d("login", e.message.toString())
-            emit(Result.Error(e.message.toString()))
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, LoginResponse::class.java)
+            val errorMessage = errorBody.message
+            emit(Result.Error(errorMessage))
         }
     }
 
@@ -102,7 +109,10 @@ class UserRepository private constructor(
             emit(Result.Success(response))
         } catch (e: HttpException) {
             Log.d("inputbmi", e.message.toString())
-            emit(Result.Error(e.message.toString()))
+            val jsonInString = e.response()?.errorBody()?.string()
+            val errorBody = Gson().fromJson(jsonInString, InputbmiResponse::class.java)
+            val errorMessage = errorBody.message
+            emit(Result.Error(errorMessage))
         }
     }
     fun getdata(token: String):LiveData<Result<BmiResponse>> = liveData {

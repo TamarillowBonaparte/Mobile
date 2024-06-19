@@ -53,7 +53,11 @@ class NutritionActivity : AppCompatActivity() {
                                     }
 
                                     is Result.Success -> {
-                                        setupAction()
+                                        showLoading(false)
+                                        val energi = result.data.dataprediksi.energi
+                                        val lemak = result.data.dataprediksi.lemak
+                                        val protein = result.data.dataprediksi.protein
+                                        binding.textViewHasil.text = "Pada makanan $menu pada porsi $porsi gram terdapat $energi energi, $lemak lemak, $protein protein"
                                     }
 
                                     is Result.Error -> {

@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: UserRepository) : ViewModel() {
 
-    fun getSession(): LiveData<UserModel> {
+    fun getsession(): LiveData<UserModel> {
         return repository.getSession().asLiveData()
     }
 
@@ -19,4 +19,7 @@ class MainViewModel(private val repository: UserRepository) : ViewModel() {
             repository.logout()
         }
     }
+    fun nutrition(namaMakanan: String, portionSize: String, token: String) =
+        repository.nutrition(namaMakanan, portionSize, token)
+
 }
