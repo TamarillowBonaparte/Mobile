@@ -4,6 +4,6 @@ xxxx Deskripsi xxxxx
 
 #Features
 The android app lets you:
--sadas
--sadasd
--sadasda
+* sadas
+* sadasd
+* sadasda
