@@ -1,5 +1,6 @@
 package com.dicoding.giziwise.bmi
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.core.content.ContextCompat
 import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.R
 import com.dicoding.giziwase.databinding.ActivityBmiBinding
+import com.dicoding.giziwise.MainActivity
 import com.dicoding.giziwise.data.Result
 
 class bmiActivity : AppCompatActivity() {
@@ -25,6 +27,10 @@ class bmiActivity : AppCompatActivity() {
 
         viewModel.getSession().observe(this) {
             getbmi(it.token)
+        }
+        binding.backHomeBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 

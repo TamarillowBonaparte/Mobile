@@ -242,6 +242,17 @@
                     android:textColor="@color/green"
                     tools:text="1800" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/backHomeBtn"
+                android:layout_width="125dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="50dp"
+                android:text="Next"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:backgroundTint="@color/dark_green"/>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
