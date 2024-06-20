@@ -12,7 +12,8 @@ Features of this Android app:
 
 # Screenshots Aplication
 ![P ss](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/88e8b1ff-faa6-448e-b95e-a51c1a0d9442)
-![P ss](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/934dda72-0f91-4fea-85bd-c6d025a1b515)
+![6355730](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/84857a21-688c-4283-80a5-8e98c111dd3c)
+
 
 
 
