@@ -1,5 +1,6 @@
 package com.dicoding.giziwise.profile
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -32,8 +33,8 @@ class ProfileActivity : AppCompatActivity() {
             insets
         }
 
-        binding.btnLogout.setOnClickListener{
-            logout()
+        binding.btnLogout.setOnClickListener {
+            showLogoutConfirmationDialog()
         }
 
         binding.homeBtn.setOnClickListener {
@@ -44,10 +45,9 @@ class ProfileActivity : AppCompatActivity() {
         viewModel.getsesion().observe(this) {
             getProfile(it.token)
         }
-
     }
 
-    private fun getProfile(token: String){
+    private fun getProfile(token: String) {
         with(binding) {
             viewModel.getProfile(token).observe(this@ProfileActivity) { result ->
                 when (result) {
@@ -67,14 +67,28 @@ class ProfileActivity : AppCompatActivity() {
                         Log.d("ProfileActivitydata", result.data.dataakun.bmi.weight.toString())
                     }
                     is Result.Error -> {
-                        Log.e("profile",result.error)
+                        Log.e("profile", result.error)
                     }
                 }
             }
         }
     }
 
-    private fun logout(){
+    private fun showLogoutConfirmationDialog() {
+        AlertDialog.Builder(this).apply {
+            setMessage("Apakah anda yakin ingin keluar?")
+            setPositiveButton("Yes") { dialog, _ ->
+                logout()
+            }
+            setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()
+            }
+            create()
+            show()
+        }
+    }
+
+    private fun logout() {
         viewModel.logout()
         startActivity(Intent(this, WelcomeActivity::class.java))
         finish()

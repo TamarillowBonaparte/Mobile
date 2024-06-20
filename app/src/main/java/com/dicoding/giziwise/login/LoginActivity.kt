@@ -19,7 +19,6 @@ import com.dicoding.giziwise.MainActivity
 import com.dicoding.ViewModelFactory
 import com.dicoding.giziwise.data.Result
 import com.dicoding.giziwise.pref.UserModel
-import com.dicoding.giziwise.profile.ProfileActivity
 import com.dicoding.giziwise.register.RegisterActivity
 
 @Suppress("DEPRECATION")
