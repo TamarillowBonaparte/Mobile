@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.dicoding.ViewModelFactory
 import com.dicoding.giziwase.R
 import com.dicoding.giziwase.databinding.ActivityProfileBinding
+import com.dicoding.giziwise.MainActivity
 import com.dicoding.giziwise.data.Result
 import com.dicoding.giziwise.welcome.WelcomeActivity
 
@@ -33,6 +34,11 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.btnLogout.setOnClickListener{
             logout()
+        }
+
+        binding.homeBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         viewModel.getsesion().observe(this) {
