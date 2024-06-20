@@ -19,5 +19,5 @@ Features of this Android app:
 
 
 # Permissions
-Your mom tell lie
-
+The minimum Android version that can use this app is Android 5.0, with Internet Access permission requested.
+The internet access permission is made to communicate data from the cloud and process food data recommendations.
