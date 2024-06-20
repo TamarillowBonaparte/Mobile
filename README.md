@@ -1,5 +1,6 @@
 # GiziWise - Android Aplication
-![GiziWiseBanner](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/b2a00f3a-0083-4287-9148-e6dcce6b3bf1)
+![6355730](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/03a14379-e2cd-4e4e-af40-29f2400b61c0)
+
 
 GiziWise is an app that helps you achieve your ideal weight and healthy lifestyle. With BMI and portion-based meal prediction features, you can track your calorie intake and nutrition easily. It also helps you achieve your ideal body and improve your focus and concentration. Get everything you need to achieve optimal health with GiziWise.
 
