@@ -11,7 +11,8 @@ Features of this Android app:
 * Profile
 
 # Screenshots Aplication
-![GithubScreenshot (1)](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/99b4f0bc-03bc-4f70-aa50-e2ef25213832)
+![P ss](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/88e8b1ff-faa6-448e-b95e-a51c1a0d9442)
+
 
 
 # Permissions
