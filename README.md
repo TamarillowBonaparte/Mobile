@@ -11,7 +11,9 @@ Features of this Android app:
 * Profile
 
 # Screenshots Aplication
-gambar
+![GithubScreenshot (1)](https://github.com/TamarillowBonaparte/Mobile/assets/125776654/6a63d999-470d-4c7c-9d3e-f94d0dbd0cd5)
+
 
 # Permissions
-blablabla
+Your mom tell lie
+
